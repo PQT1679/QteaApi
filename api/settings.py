@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = "django-insecure-#3y146*4d@u0@c-cfh$y8_rg=7b4s&^iky$r@bemf2tk&qbd9-"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -138,3 +138,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+import django_heroku
+django_heroku.settings(locals())
