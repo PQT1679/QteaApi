@@ -1,5 +1,7 @@
+from asyncore import write
 from dataclasses import field
 import email
+from django.forms import CharField
 from rest_framework import serializers
 from .models import *
 from django.contrib.auth.models import User
@@ -20,9 +22,12 @@ class OrderDetailSerializer(serializers.ModelSerializer):
         fields="__all__"
 
 class UserSerializer(serializers.ModelSerializer):
+
     class Meta:
         model=User
-        fields=("id","username","first_name","last_name","email","is_superuser","is_staff")
+        fields=("id","username","password","email","first_name","last_name","is_superuser","is_staff")
+        read_only_fields =["is_superuser","is_staff"]
+        extra_kwargs = {'password': {'write_only': True}}
     
     def validate_email(self, value):
         if len(User.objects.filter(email=value))>0:
