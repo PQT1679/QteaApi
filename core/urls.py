@@ -9,6 +9,7 @@ from .views import *
 router = DefaultRouter()
 router.register(r'products',ProductViewSet,basename='products')
 router.register(r'orders',OrderViewSet,basename='orders')
+router.register(r'users',UserViewSet,basename='user')
 urlpatterns = [
 ]
 urlpatterns+=router.urls
