@@ -14,7 +14,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset=Product.objects.all()
     serializer_class=ProductSerializer
 
-    permission_classes=[IsAuthenticatedOrReadOnly]
+    permission_classes=[IsAuthenticated]
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
 
