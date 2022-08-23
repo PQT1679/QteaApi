@@ -10,6 +10,7 @@ router = DefaultRouter()
 router.register(r'products',ProductViewSet,basename='products')
 router.register(r'orders',OrderViewSet,basename='orders')
 router.register(r'users',UserViewSet,basename='user')
+router.register(r'imgs',ImageViewset,basename='imgs')
 urlpatterns = [
 ]
 urlpatterns+=router.urls
