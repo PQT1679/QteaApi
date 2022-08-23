@@ -1,5 +1,5 @@
 from asyncore import write
-from dataclasses import field
+from dataclasses import field, fields
 import email
 from rest_framework.response import Response
 from django.forms import CharField
@@ -39,3 +39,8 @@ class UserSerializer(serializers.ModelSerializer):
         if len(value)<6:
             raise serializers.ValidationError("Username must long than 5 charaters")
         return value
+
+class IMGSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Img
+        fields="__all__"
