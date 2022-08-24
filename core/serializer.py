@@ -43,4 +43,4 @@ class UserSerializer(serializers.ModelSerializer):
 class IMGSerializer(serializers.ModelSerializer):
     class Meta:
         model=Img
-        fields="__all__"
+        fields=("__all__")

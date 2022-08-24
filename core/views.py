@@ -91,11 +91,11 @@ class ImageViewset(viewsets.ModelViewSet):
     queryset=Img.objects.all()
     serializer_class=IMGSerializer
 
-    permission_classes=[AllowAny]
+    permission_classes=[IsAuthenticated]
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
 
     permission_classes=[AllowAny]
     def create(self, request, *args, **kwargs):
-        print(request.data)
         return super().create(request, *args, **kwargs)
+
