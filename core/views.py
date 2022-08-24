@@ -95,7 +95,11 @@ class ImageViewset(viewsets.ModelViewSet):
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
 
-    permission_classes=[IsAuthenticated]
+    permission_classes=[IsAuthenticatedOrReadOnly]
     def create(self, request, *args, **kwargs):
         print(request.data)
         return super().create(request, *args, **kwargs)
+
+    @action(detail=False,methods=['post'],permission_classes=[IsAuthenticated])
+    def add_Img(self,request,pk=None):
+        return Response({'status':self.get_object()})
