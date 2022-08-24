@@ -65,7 +65,7 @@ class Pricing(models.Model):
 
     
 class Img(models.Model):
-    productimg=models.ImageField(db_column='IMG', max_length=255,upload_to="products/")
+    productimg=models.ImageField(db_column='IMG', max_length=255)
 
     class Meta:
         db_table = 'img'
