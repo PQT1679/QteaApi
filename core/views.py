@@ -91,7 +91,7 @@ class ImageViewset(viewsets.ModelViewSet):
     queryset=Img.objects.all()
     serializer_class=IMGSerializer
 
-    permission_classes=[IsAuthenticated]
+    permission_classes=[AllowAny]
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
 
@@ -99,7 +99,3 @@ class ImageViewset(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         print(request.data)
         return super().create(request, *args, **kwargs)
-
-    @action(detail=False,methods=['post'],permission_classes=[AllowAny])
-    def add_Img(self,request,pk=None):
-        return Response({'status':self.get_object()})
